@@ -1,7 +1,7 @@
 [project]
 name = "fabric-audit"
 version = "0.1.0"
-description = "Add your description here"
+description = "Audit data center cabling: compare the expected links with what is actually plugged in."
 readme = "README.md"
 authors = [
     { name = "Lalith Avinash D", email = "lalithd1@umbc.edu" }

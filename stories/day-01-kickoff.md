@@ -21,19 +21,19 @@
 ## ✅ Acceptance criteria
 
 - [x] Project runs on **Python 3.12** with FastAPI, pytest and ruff
-- [ ] `GET /healthz` returns **200**
-- [ ] Models exist for **Device**, **Interface** and **Link** (device A port → device B port)
-- [ ] **3 tests** pass
-- [ ] **GitHub Actions** runs ruff and pytest on every push, and it's green
+- [x] `GET /healthz` returns **200**
+- [x] Models exist for **Device**, **Interface** and **Link** (device A port → device B port)
+- [x] **3 tests** pass
+- [x] **GitHub Actions** runs ruff and pytest on every push, and it's green
 
 ---
 
 ## 🧩 Tasks
 
 - [x] 1. Set up the project (Python 3.12, dependencies, `.gitignore`)
-- [ ] 2. Add `/healthz` and the models
-- [ ] 3. Write the tests and the CI workflow
-- [ ] 4. Commit and push
+- [x] 2. Add `/healthz` and the models
+- [x] 3. Write the tests and the CI workflow
+- [x] 4. Commit and push
 
 ---
 
