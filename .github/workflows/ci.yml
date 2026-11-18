@@ -1,0 +1,28 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    # A fresh Linux machine from GitHub. It starts empty every run.
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Copy your repo onto the machine
+      - uses: actions/checkout@v5
+
+      # 2. Install uv (check https://docs.astral.sh/uv/guides/integration/github/ for the latest version)
+      - uses: astral-sh/setup-uv@v6
+
+      # 3. Install Python 3.12 + exact package versions from uv.lock
+      #    --locked = fail if uv.lock is out of date with pyproject.toml
+      - run: uv sync --locked
+
+      # 4-6 Quality checks.
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Format check
+        run: uv run ruff format --check .
+      - name: Tests
+        run: uv run pytest -v
