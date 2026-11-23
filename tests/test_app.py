@@ -27,14 +27,32 @@ def test_healthz_returns_200():
 def test_link_direction_does_not_matter():
     # Arrange
     spine_to_leaf = Link(
-        interface_a={"device_name": "spine1", "name": "eth1"},
-        interface_b={"device_name": "leaf1", "name": "eth1"},
+        interface_a={"device": "spine1", "port": "eth1"},
+        interface_b={"device": "leaf1", "port": "eth1"},
     )
     leaf_to_spine = Link(
-        interface_a={"device_name": "leaf1", "name": "eth1"},
-        interface_b={"device_name": "spine1", "name": "eth1"},
+        interface_a={"device": "leaf1", "port": "eth1"},
+        interface_b={"device": "spine1", "port": "eth1"},
     )
     assert spine_to_leaf.key() == leaf_to_spine.key()
+
+
+# ---------------------------------------------------------------------------
+# Test 2b: two DIFFERENT cables must NOT share a key
+#
+# Why: a key() that returns the same value for everything would pass Test 2.
+# This test catches that.
+# ---------------------------------------------------------------------------
+def test_different_cables_have_different_keys():
+    correct_port = Link(
+        interface_a={"device": "spine1", "port": "eth1"},
+        interface_b={"device": "leaf1", "port": "eth3"},
+    )
+    wrong_port = Link(
+        interface_a={"device": "spine1", "port": "eth1"},
+        interface_b={"device": "leaf1", "port": "eth4"},
+    )
+    assert correct_port.key() != wrong_port.key()
 
 
 # ---------------------------------------------------------------------------
@@ -46,6 +64,6 @@ def test_link_direction_does_not_matter():
 def test_link_to_same_device_is_rejected():
     with pytest.raises(ValidationError):
         Link(
-            interface_a={"device_name": "leaf1", "name": "eth1"},
-            interface_b={"device_name": "leaf1", "name": "eth2"},
+            interface_a={"device": "leaf1", "port": "eth1"},
+            interface_b={"device": "leaf1", "port": "eth2"},
         )

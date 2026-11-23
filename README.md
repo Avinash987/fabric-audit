@@ -72,8 +72,8 @@ A small spine-leaf fabric, like the one this project targets:
 from fabric_audit.models import Link
 
 link = Link(
-    interface_a={"device_name": "leaf1", "name": "eth1"},
-    interface_b={"device_name": "spine1", "name": "eth1"},
+    interface_a={"device": "leaf1", "port": "eth1"},
+    interface_b={"device": "spine1", "port": "eth1"},
 )
 link.key()  # (('leaf1', 'eth1'), ('spine1', 'eth1'))
 ```
