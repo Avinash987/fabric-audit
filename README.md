@@ -8,7 +8,7 @@ In a data center, thousands of cables are plugged in by hand from a cabling plan
 
 fabric-audit compares **what should be cabled** (the plan) with **what is actually cabled** (what switches report over LLDP), and reports the differences.
 
-> 🚧 **Early stage.** It currently has the data model, a health endpoint, tests and CI. See the [roadmap](#roadmap).
+> 🚧 **Early stage.** It currently has the data model, a health endpoint, tests, CI and a virtual lab fabric. See the [roadmap](#roadmap).
 
 ---
 
@@ -98,6 +98,8 @@ tests/
   test_app.py    health check, link direction, validation
 .github/workflows/
   ci.yml         ruff + pytest on every push
+lab/
+  fabric.clab.yml  containerlab topology: the lab fabric and its cabling
 stories/         day-by-day build notes
 ```
 
@@ -110,7 +112,7 @@ Python 3.12 · FastAPI · Pydantic v2 · uvicorn · pytest · ruff · uv · GitH
 ## Roadmap
 
 - [x] Project setup, data model, health check, tests, CI
-- [ ] Virtual fabric in containerlab (2 spines, 2 leaves, 2 hosts) with LLDP
+- [x] Virtual fabric in containerlab (2 spines, 2 leaves, 2 hosts) with LLDP
 - [ ] Collector: read LLDP neighbors and turn them into observed `Link`s
 - [ ] Audit engine: missing, unexpected, wrong-port and swapped-pair findings
 - [ ] Fault injection: break the lab on purpose and catch it

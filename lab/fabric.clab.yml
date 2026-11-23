@@ -1,0 +1,38 @@
+# fabric-audit lab: 2 spines, 2 leaves, 2 hosts
+#   up:    orb -m clab sudo containerlab deploy  -t lab/fabric.clab.yml
+#   down:  orb -m clab sudo containerlab destroy -t lab/fabric.clab.yml
+
+name: fabric # lab name → containers are clab-fabric-<node>
+
+topology:
+  defaults: # applies to EVERY node
+    kind: linux #   plain Linux containers, no vendor setup
+
+  kinds: # applies to every node OF THIS KIND
+    linux:
+      exec: #   runs inside each node right after it starts
+        - apk add -q lldpd #   install lldpd (Alpine's package manager)
+        - lldpd #   start the LLDP daemon
+
+  nodes: # only what's different per node
+    spine1:
+      image: quay.io/frrouting/frr:10.7.1 # registry/owner/repo:pinned-tag
+    spine2:
+      image: quay.io/frrouting/frr:10.7.1
+    leaf1:
+      image: quay.io/frrouting/frr:10.7.1
+    leaf2:
+      image: quay.io/frrouting/frr:10.7.1
+    host1:
+      image: alpine:3.20 # Docker Hub, so no registry needed
+    host2:
+      image: alpine:3.20
+
+  links: # the cabling plan = EXPECTED for fabric-audit
+    # Rule: port number = number of the device on the other end
+    - endpoints: ["spine1:eth1", "leaf1:eth1"]
+    - endpoints: ["spine1:eth2", "leaf2:eth1"]
+    - endpoints: ["spine2:eth1", "leaf1:eth2"]
+    - endpoints: ["spine2:eth2", "leaf2:eth2"]
+    - endpoints: ["leaf1:eth3", "host1:eth1"]
+    - endpoints: ["leaf2:eth3", "host2:eth1"]

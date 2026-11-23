@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1050" viewBox="0 0 1400 1050" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1400" height="1050" fill="#ffffff"/>
+
+  <!-- Mac -->
+  <rect x="20" y="20" width="1360" height="1010" rx="18" fill="#f4f4f5" stroke="#71717a" stroke-width="2"/>
+  <text x="44" y="60" font-size="26" font-weight="bold" fill="#27272a">Mac  (macOS, arm64)</text>
+  <rect x="330" y="36" width="470" height="36" rx="8" fill="#ffffff" stroke="#a1a1aa"/>
+  <text x="346" y="60" font-size="17" fill="#3f3f46">VS Code: you edit  lab/fabric.clab.yml</text>
+
+  <!-- Linux VM -->
+  <rect x="44" y="92" width="1312" height="914" rx="16" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="68" y="130" font-size="22" font-weight="bold" fill="#1e40af">Linux VM "clab"  (OrbStack, Ubuntu arm64)</text>
+
+  <rect x="68" y="150" width="260" height="60" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="198" y="187" font-size="19" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Docker engine</text>
+  <rect x="348" y="150" width="600" height="60" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="368" y="187" font-size="19" fill="#1e3a8a"><tspan font-weight="bold">containerlab</tspan>  reads the YAML, tells Docker what to build</text>
+
+  <!-- cables (drawn first so boxes sit on top) -->
+  <g stroke="#334155" stroke-width="3.5" fill="none">
+    <line x1="370" y1="380" x2="370" y2="540"/>
+    <line x1="470" y1="380" x2="770" y2="540"/>
+    <line x1="770" y1="380" x2="470" y2="540"/>
+    <line x1="870" y1="380" x2="870" y2="540"/>
+    <line x1="420" y1="630" x2="420" y2="780"/>
+    <line x1="820" y1="630" x2="820" y2="780"/>
+  </g>
+
+  <!-- nodes -->
+  <g>
+    <!-- spines -->
+    <rect x="320" y="290" width="200" height="90" rx="12" fill="#ffffff" stroke="#6366f1" stroke-width="3"/>
+    <text x="420" y="328" font-size="24" font-weight="bold" fill="#4338ca" text-anchor="middle">spine1</text>
+    <text x="420" y="356" font-size="16" fill="#52525b" text-anchor="middle">FRR + lldpd</text>
+    <rect x="720" y="290" width="200" height="90" rx="12" fill="#ffffff" stroke="#6366f1" stroke-width="3"/>
+    <text x="820" y="328" font-size="24" font-weight="bold" fill="#4338ca" text-anchor="middle">spine2</text>
+    <text x="820" y="356" font-size="16" fill="#52525b" text-anchor="middle">FRR + lldpd</text>
+    <!-- leaves -->
+    <rect x="320" y="540" width="200" height="90" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+    <text x="420" y="590" font-size="24" font-weight="bold" fill="#0369a1" text-anchor="middle">leaf1</text>
+    <text x="420" y="614" font-size="16" fill="#52525b" text-anchor="middle">FRR + lldpd</text>
+    <rect x="720" y="540" width="200" height="90" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+    <text x="820" y="590" font-size="24" font-weight="bold" fill="#0369a1" text-anchor="middle">leaf2</text>
+    <text x="820" y="614" font-size="16" fill="#52525b" text-anchor="middle">FRR + lldpd</text>
+    <!-- hosts -->
+    <rect x="320" y="780" width="200" height="90" rx="12" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <text x="420" y="830" font-size="24" font-weight="bold" fill="#047857" text-anchor="middle">host1</text>
+    <text x="420" y="856" font-size="16" fill="#52525b" text-anchor="middle">Linux + lldpd</text>
+    <rect x="720" y="780" width="200" height="90" rx="12" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <text x="820" y="830" font-size="24" font-weight="bold" fill="#047857" text-anchor="middle">host2</text>
+    <text x="820" y="856" font-size="16" fill="#52525b" text-anchor="middle">Linux + lldpd</text>
+  </g>
+
+  <!-- port tags -->
+  <g font-size="15" font-weight="bold" text-anchor="middle">
+    <g fill="#fef3c7" stroke="#d97706" stroke-width="1.5">
+      <rect x="344" y="368" width="52" height="24" rx="6"/>
+      <rect x="444" y="368" width="52" height="24" rx="6"/>
+      <rect x="744" y="368" width="52" height="24" rx="6"/>
+      <rect x="844" y="368" width="52" height="24" rx="6"/>
+      <rect x="344" y="528" width="52" height="24" rx="6"/>
+      <rect x="444" y="528" width="52" height="24" rx="6"/>
+      <rect x="744" y="528" width="52" height="24" rx="6"/>
+      <rect x="844" y="528" width="52" height="24" rx="6"/>
+      <rect x="394" y="618" width="52" height="24" rx="6"/>
+      <rect x="794" y="618" width="52" height="24" rx="6"/>
+      <rect x="394" y="768" width="52" height="24" rx="6"/>
+      <rect x="794" y="768" width="52" height="24" rx="6"/>
+    </g>
+    <g fill="#92400e">
+      <text x="370" y="385">eth1</text><text x="470" y="385">eth2</text>
+      <text x="770" y="385">eth1</text><text x="870" y="385">eth2</text>
+      <text x="370" y="545">eth1</text><text x="470" y="545">eth2</text>
+      <text x="770" y="545">eth1</text><text x="870" y="545">eth2</text>
+      <text x="420" y="635">eth3</text><text x="820" y="635">eth3</text>
+      <text x="420" y="785">eth1</text><text x="820" y="785">eth1</text>
+    </g>
+  </g>
+
+  <!-- legend -->
+  <rect x="990" y="290" width="340" height="330" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="1010" y="324" font-size="19" font-weight="bold" fill="#0f172a">Legend</text>
+  <rect x="1010" y="344" width="56" height="34" rx="6" fill="#ffffff" stroke="#6366f1" stroke-width="2.5"/>
+  <text x="1080" y="360" font-size="16" fill="#1e293b">box = 1 container</text>
+  <text x="1080" y="380" font-size="16" fill="#1e293b">       = 1 device</text>
+  <line x1="1010" y1="414" x2="1066" y2="414" stroke="#334155" stroke-width="3.5"/>
+  <text x="1080" y="410" font-size="16" fill="#1e293b">line = 1 veth pair</text>
+  <text x="1080" y="430" font-size="16" fill="#1e293b">       = 1 cable</text>
+  <rect x="1012" y="454" width="52" height="24" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="1038" y="471" font-size="15" font-weight="bold" fill="#92400e" text-anchor="middle">ethN</text>
+  <text x="1080" y="465" font-size="16" fill="#1e293b">port, named in the YAML</text>
+  <text x="1080" y="485" font-size="16" fill="#1e293b">(numbers are an example)</text>
+  <line x1="1010" y1="526" x2="1066" y2="526" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <text x="1080" y="522" font-size="16" fill="#1e293b">eth0 on every node</text>
+  <text x="1080" y="542" font-size="16" fill="#1e293b">= management, not a cable</text>
+  <text x="1010" y="590" font-size="15" fill="#475569">Each switch reports its neighbors</text>
+  <text x="1010" y="608" font-size="15" fill="#475569">from its own point of view (Day 1).</text>
+
+  <!-- Day 1 connection -->
+  <rect x="990" y="650" width="340" height="220" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="1010" y="684" font-size="19" font-weight="bold" fill="#0f172a">How this feeds fabric-audit</text>
+  <text x="1010" y="722" font-size="16" font-weight="bold" fill="#4338ca">EXPECTED</text>
+  <text x="1010" y="744" font-size="16" fill="#1e293b">links: in fabric.clab.yml</text>
+  <text x="1010" y="782" font-size="16" font-weight="bold" fill="#047857">OBSERVED</text>
+  <text x="1010" y="804" font-size="16" fill="#1e293b">lldpcli show neighbors</text>
+  <text x="1010" y="846" font-size="16" fill="#1e293b">compared with <tspan font-weight="bold">Link.key()</tspan></text>
+
+  <!-- deploy flow -->
+  <rect x="68" y="910" width="1262" height="72" rx="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="88" y="942" font-size="17" font-weight="bold" fill="#0f172a">containerlab deploy:</text>
+  <text x="88" y="968" font-size="16" fill="#334155">read YAML  →  1 container per node  →  1 veth pair per link, ports named as written  →  eth0 for mgmt  →  lldpd sends name + port out every interface</text>
+</svg>
